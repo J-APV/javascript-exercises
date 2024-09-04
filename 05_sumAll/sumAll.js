@@ -1,13 +1,20 @@
 const sumAll = function(start, end) {
     let sum = 0;
-    if(start >  end){
-        for(let i = end; i <= start; i++){
-            sum += i;
+    // if(typeof(start) != 'number' || typeof(end) != 'number'){
+    //     return "ERROR";
+
+    // }
+    if(start >= 0 && end >= 0 && Number.isInteger(start) === true && Number.isInteger(end) === true){
+        if(start >  end){
+            let temp = start;
+            start = end;
+            end = temp;
         }
-    }else{
         for(let i = start; i <= end; i++){
             sum += i;
         }
+    }else{
+        return "ERROR"
     }
     return sum;
 };
